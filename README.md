@@ -1,54 +1,78 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Banco de Alimentos Quito – Donation Platform Enhancement
 
-Currently, two official plugins are available:
+This project addresses three key challenges in the current donation system for Banco de Alimentos Quito (BAQ). The goal is to modernize and optimize the donation experience—both locally and internationally—by integrating robust technologies, simplifying user flows, and providing scalable tools for recurring contributions.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## **Overview**
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+This solution was developed as part of a hackathon in collaboration with Universidad UTE and Fundación Openlab. It focuses on three core areas:
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+1. **Optimizing the recurring donation system**
+2. **Integrating international donation platforms (e.g., PayPal)**
+3. **Improving the existing payment gateway usability and features**
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## **Key Features**
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+### **1. Automatic Debit Optimization**
+
+* Streamlined registration for recurring donations (e.g., PayPal Subscriptions)
+* Secure banking authentication (OAuth + encryption)
+* Personalized management of donation amounts, frequency, and schedule via an intuitive GUI
+* Email notifications via SMTP (confirmation, reminders)
+* Real-time contributor dashboard (built with React/JS)
+* Retention tools: pause, reschedule, cancel options
+* Data persistence and donation history tracking
+* Tax-ready data export compatible with Ecuador's SRI requirements
+
+### **2. PayPal & International Donations**
+
+* Full PayPal integration for international recurring and one-time donations
+* Multilingual donation interface to serve the Ecuadorian diaspora
+* Transparent and compliant payment processing via WooCommerce or native APIs
+* Automated reconciliation system for easier international fund tracking
+* Digital marketing strategies using Facebook Ads and Google Ads
+
+### **3. Existing Payment Gateway Enhancement**
+
+* Redesigned user experience to improve donor flow and reduce abandonment
+* Donation “one-click” for logged-in or recurring donors
+* Analytics integration for donation tracking and decision-making
+* Specific campaign modules with tracking per initiative
+* Microdonations and “round-up” features using DeUna platform
+
+---
+
+## **Deliverables**
+
+At the end of the hackathon, each team presents:
+
+* **Functional Prototype**: Fully working implementation of the proposed solution
+* **Pitch Presentation (15 minutes)** covering:
+
+  * The specific problem tackled
+  * The implemented technical solution
+  * Impact and expected outcomes
+
+---
+
+## **Tech Stack**
+
+* **Frontend**: React.js
+* **Backend**: Node.js / Express
+* **Payments**: PayPal, DeUna, WooCommerce (optional)
+* **Notifications**: SMTP email service
+* **Analytics**: Google Analytics, custom dashboards
+* **Security**: OAuth 2.0, SSL encryption
+* **Marketing**: Facebook Ads, Google Ads
+
+---
+
+## **Contributors**
+
+Developed by the \[Hackathon Team Name], with support from Universidad UTE and Fundación Openlab.
+
+---
