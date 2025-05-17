@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography, Grid, Link as MuiLink } from "@mui/material";
+import { Box, Typography, Link as MuiLink, Grid } from "@mui/material";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import MusicNoteIcon from "@mui/icons-material/MusicNote";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
     <Box sx={{ backgroundColor: "#5c5c5c", color: "#fff", py: 4, px: 2 }}>
       <Grid container spacing={4} justifyContent="center">
         {/* Logo & Message */}
-        <Grid item xs={12} md={4} textAlign="center">
+        <Grid sx={{ textAlign: "center" }}>
           <Box mb={2}>
             <img src={baqLogo} alt="Banco de Alimentos Quito" style={{ height: 60 }} />
           </Box>
@@ -21,7 +21,7 @@ const Footer: React.FC = () => {
         </Grid>
 
         {/* Contact Information */}
-        <Grid item xs={12} md={4}>
+        <Grid>
           <Typography variant="h6" gutterBottom>
             Contact Information:
           </Typography>
@@ -39,7 +39,7 @@ const Footer: React.FC = () => {
         </Grid>
 
         {/* Social Media */}
-        <Grid item xs={12} md={4}>
+        <Grid>
           <Typography variant="h6" gutterBottom>
             Nuestras redes sociales:
           </Typography>
