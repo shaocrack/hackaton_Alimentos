@@ -1,0 +1,8 @@
+
+.custom-navbar{
+  background-color: var(--color-main);
+}
+
+.navbar-nav{
+  color: var(--color-text);
+}
