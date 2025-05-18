@@ -15,6 +15,8 @@ const LandingSection = () => {
 
       <div className="content-wrapper">
         <div className="text-button-section">
+          <br/>
+          <br/>
           <h1>
             ¡DONAR ES IGUAL A INVERTIR <br /> EN UN ECUADOR SIN HAMBRE, ÚNETE!
           </h1>
