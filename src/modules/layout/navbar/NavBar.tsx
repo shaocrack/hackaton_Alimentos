@@ -15,32 +15,10 @@ import {
   MenuItem,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import { ExpandLess, ExpandMore } from "@mui/icons-material";
+import { ExpandLess, ExpandMore, Favorite } from "@mui/icons-material";
 import baqLogo from "../../../assets/logo.webp";
-
-const navItems = [
-  { path: "/", label: "Home", type: "simple" },
-  { path: "/about", label: "Get to know us", type: "simple" },
-  {
-    label: "Donate Hope",
-    type: "multiple",
-    entries: [
-      { path: "/donate-food-ecuador", label: "Donate Food in Ecuador" },
-      { path: "/donate-baq", label: "Donate – BAQ" },
-      { path: "/volunteering", label: "Volunteering" },
-    ],
-  },
-  {
-    label: "Find Food",
-    type: "multiple",
-    entries: [
-      { path: "/social-organizations", label: "Social Organizations" },
-      { path: "/family-assistance", label: "Family Assistance Program" },
-    ],
-  },
-  { path: "/contact", label: "Contact us", type: "simple" },
-  { path: "/donate", label: "Donate", type: "simple" },
-];
+import { navItems } from "../navigation/navItems";
+import hoverSoundFile from "../../../assets/donate.webm";
 
 const Navbar: React.FC = () => {
   const location = useLocation();
@@ -48,6 +26,7 @@ const Navbar: React.FC = () => {
   const [openCollapse, setOpenCollapse] = useState<Record<string, boolean>>({});
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [menuIndex, setMenuIndex] = useState<number | null>(null);
+  const hoverSound = new Audio(hoverSoundFile);
 
   const handleDrawerToggle = () => setMobileOpen((prev) => !prev);
   const toggleCollapse = (label: string) =>
@@ -167,7 +146,9 @@ const Navbar: React.FC = () => {
             }}
           >
             {navItems.map((item, index) => {
-              const isDonate = item.label.toLowerCase() === "donate";
+              const isDonate =
+                item.label.toLowerCase() === "donate" ||
+                item.label.toLowerCase() === "donar";
 
               if (item.type === "multiple" && item.entries) {
                 return (
@@ -176,9 +157,9 @@ const Navbar: React.FC = () => {
                     onMouseEnter={(e) => handleMenuOpen(e, index)}
                     onMouseLeave={handleMenuClose}
                     sx={{
-                       "&:hover": {
-                          cursor: "pointer", 
-                        },
+                      "&:hover": {
+                        cursor: "pointer",
+                      },
                     }}
                   >
                     <Button
@@ -189,6 +170,7 @@ const Navbar: React.FC = () => {
                         "&:hover": {
                           cursor: "pointer", // Forzamos el cursor si hay overrides globales
                         },
+                        pt: 1.1
                       }}
                     >
                       {item.label}
@@ -220,24 +202,61 @@ const Navbar: React.FC = () => {
 
               return item.path ? (
                 <Button
+                  startIcon={isDonate ? <Favorite fontSize="small" /> : null}
                   key={item.path}
                   component={Link}
                   to={item.path}
                   variant={isDonate ? "contained" : "text"}
+                   onMouseEnter={() => {
+                    if (isDonate) {
+                      hoverSound.currentTime = 0;
+                      hoverSound.play().catch(() => {}); // evita errores si no está permitido aún
+                    }
+                  }}
                   sx={{
-                    fontSize: 16,
-                    color: isDonate ? "#fb8c00" : "inherit",
-                    backgroundColor: isDonate
-                      ? "rgba(255, 255, 255, 0.87)"
-                      : "transparent",
-                    borderRadius: isDonate ? "5px" : 0,
+                    fontSize: isDonate ? 17 : 16,
+                    minWidth: 120,
                     fontWeight: isDonate ? "bold" : "normal",
+                    color: isDonate ? "#fb8c00" : "inherit",
+                    backgroundColor: isDonate ? "#fff" : "transparent",
                     textTransform: "none",
+                    borderRadius: isDonate ? "8px" : "4px",
+                    border: isDonate ? "2px solid transparent" : "none",
+                    boxShadow: isDonate
+                      ? "0 0 10px rgba(251, 140, 0, 0.6), 0 0 20px rgba(251, 140, 0, 0.4)"
+                      : "none",
+                    transition: "all 0.4s ease-in-out", // clave para suavidad
+
+                    animation: isDonate ? "pulse 2s infinite" : "none",
+
                     "&:hover": {
-                      backgroundColor: isDonate
-                        ? "#ccc"
-                        : "rgba(255, 255, 255, 0.87)",
-                      borderRadius: "5px"
+                      backgroundColor: isDonate ? "transparent" : "#fff",
+                      backgroundImage: isDonate
+                        ? "linear-gradient(45deg, #FF5100FF, #ffc107)"
+                        : "none",
+                      border: isDonate ? "2px solid #fff" : "none",
+                      color: isDonate ? "#fff" : "#ff6f00",
+                      boxShadow: isDonate
+                        ? "0 0 15px rgba(255, 152, 0, 0.9), 0 0 30px rgba(255, 152, 0, 0.6)"
+                        : "none",
+                      transform: isDonate ? "scale(1.05)" : "none",
+                      borderRadius: "8px",
+                      transition: "all 0.4s ease-in-out", // transición en hover también
+                    },
+                    
+                    "@keyframes pulse": {
+                      "0%": {
+                        transform: "scale(1)",
+                        boxShadow: "0 0 0 0 rgba(251, 140, 0, 0.7)",
+                      },
+                      "70%": {
+                        transform: "scale(1.05)",
+                        boxShadow: "0 0 0 15px rgba(251, 140, 0, 0)",
+                      },
+                      "100%": {
+                        transform: "scale(1)",
+                        boxShadow: "0 0 0 0 rgba(251, 140, 0, 0)",
+                      },
                     },
                   }}
                 >
@@ -260,7 +279,7 @@ const Navbar: React.FC = () => {
                       backgroundColor: isDonate
                         ? "#ccc"
                         : "rgba(255, 255, 255, 0.87)",
-                      borderRadius: "5px"
+                      borderRadius: "5px",
                     },
                   }}
                   disabled

@@ -32,6 +32,14 @@ a:hover {
   color: var(--color-link-hover);
 }
 
+.buttonPrimary{
+  background-color: var(--color-main);
+}
+
+.title{
+  color: var(--color-main);
+}
+
 body {
   margin: 0;
   display: flex;

@@ -1,37 +1,37 @@
 export const navItems = [
-  { path: "/", label: "Home", type: "simple" },
-  { path: "/about", label: "Get to know us", type: "simple" },
+  { path: "/", label: "Inicio", type: "simple" },
+  { path: "/about", label: "Conócenos", type: "simple" },
   {
     path: "/donate-hope",
-    label: "Donate Hope",
+    label: "Dona Esperanza",
     type: "multiple",
     entries: [
       {
         path: "/donate-food-ecuador",
-        label: "Donate Food in Ecuador",
+        label: "Donar Alimentos en Ecuador",
         type: "submenu",
       },
-      { path: "/donate-baq", label: "Donate – BAQ", type: "submenu" },
-      { path: "/volunteering", label: "Volunteering", type: "submenu" },
+      { path: "/donate-baq", label: "Donar – BAQ", type: "submenu" },
+      { path: "/volunteering", label: "Voluntariado", type: "submenu" },
     ],
   },
   {
     path: "/find-food",
-    label: "Find Food",
+    label: "Encontrar Alimentos",
     type: "multiple",
     entries: [
       {
         path: "/social-organizations",
-        label: "Social Organizations",
+        label: "Organizaciones Sociales",
       },
       {
         path: "/family-assistance",
-        label: "Family Assistance Program",
+        label: "Programa de Asistencia Familiar",
         type: "simple",
       },
     ],
   },
 
-  { path: "/contact", label: "Contact us", type: "simple" },
-  { path: "/donate", label: "Donate", type: "simple" }, // Destacado
+  { path: "/contact", label: "Contáctanos", type: "simple" },
+  { path: "/donate", label: "Donar", type: "simple" }, // Destacado
 ];
