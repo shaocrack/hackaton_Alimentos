@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { CertificateTest } from './modules/certificates/views/CertificateTest';
 import { QRMessage } from './modules/certificates/views/QRMessage';
 import { QRDisplay } from './modules/certificates/views/QRDisplay';
+import Dashboard from './modules/dashboard/views/Dashboard';
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
         <Route path="/certificates/test" element={<CertificateTest />} />
         <Route path="/qr-message" element={<QRMessage />} />
         <Route path="/qr-display" element={<QRDisplay />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </Router>
   )

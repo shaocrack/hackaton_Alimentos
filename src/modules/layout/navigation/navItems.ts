@@ -1,6 +1,7 @@
 export const navItems = [
   { path: "/", label: "Inicio", type: "simple" },
   { path: "/about", label: "Conócenos", type: "simple" },
+  { path: "/dashboard", label: "Dashboard", type: "simple" },
   {
     path: "/donate-hope",
     label: "Dona Esperanza",
