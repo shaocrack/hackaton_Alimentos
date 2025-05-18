@@ -10,52 +10,55 @@ export class CertificateServiceImpl implements CertificateService {
       format: 'a4'
     });
 
-    // Cargar la imagen de fondo
+    // Cargar la imagen de fondo del certificado
     const img = new Image();
-    img.src = '/certificates/login.png';
+    img.src = '/certificates/CERTIFICADO.jpg';
 
     // Esperar a que la imagen se cargue
     await new Promise((resolve) => {
       img.onload = resolve;
     });
 
-    // Agregar la imagen de fondo
-    doc.addImage(img, 'PNG', 0, 0, 297, 210);
+    // Agregar la imagen de fondo (A4 landscape: 297x210mm)
+    doc.addImage(img, 'JPEG', 0, 0, 297, 210);
 
-    // Configurar el texto
-    doc.setFontSize(40);
-    doc.setTextColor(0, 0, 0);
+    // Nombre (centrado, más arriba)
+    doc.setFontSize(36);
     doc.setFont('helvetica', 'bold');
-    
-    // Centrar el nombre
+    doc.setTextColor(34, 34, 34);
     const nameWidth = doc.getTextWidth(data.name);
-    const pageWidth = 297;
-    const nameX = (pageWidth - nameWidth) / 2;
-    doc.text(data.name, nameX, 100);
+    const nameX = (297 - nameWidth) / 2;
+    const nameY = 105; // Ajustado para mejor visualización
+    doc.text(data.name, nameX, nameY);
 
-    // Agregar la fecha
+    // Fecha (centrado, más abajo)
     doc.setFontSize(20);
+    doc.setFont('times', 'italic');
     const dateWidth = doc.getTextWidth(data.date);
-    const dateX = (pageWidth - dateWidth) / 2;
-    doc.text(data.date, dateX, 120);
+    const dateX = (305 - dateWidth) / 2;
+    const dateY = 192; // Ajustado para mejor visualización
+    doc.text(data.date, dateX, dateY);
 
-    // Generar QR con la URL de la página de mensaje
+    // Generar QR
     const qrUrl = `${window.location.origin}/qr-message`;
     const qrCode = await QRCode.toDataURL(qrUrl, {
-      width: 200,
+      width: 400,
       margin: 1,
       color: {
         dark: '#000000',
         light: '#ffffff'
       }
     });
+    // QR (esquina inferior derecha)
+    const qrSize = 22; // mm
+    const qrX = 315 - qrSize - 40; // 40mm de margen derecho
+    const qrY = 189 - qrSize - 30; // 30mm de margen inferior
+    doc.addImage(qrCode, 'PNG', qrX, qrY, qrSize, qrSize);
 
-    // Agregar el QR al certificado
-    doc.addImage(qrCode, 'PNG', 20, 140, 30, 30);
-
-    // Agregar texto del QR
+    // Texto bajo el QR
     doc.setFontSize(10);
-    doc.text("Escanea para unirte al cambio", 55, 155);
+    doc.setFont('helvetica', 'normal');
+    doc.text("", qrX, qrY + qrSize + 7);
 
     // Convertir a Blob
     return doc.output('blob');

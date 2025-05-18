@@ -39,7 +39,7 @@ export const CertificateTest: React.FC = () => {
   return (
     <Layout>
       <div className="p-4">
-        <h1 className="text-2xl font-bold mb-4">Prueba de Certificados</h1>
+        <h1 className="text-2xl font-bold mb-4">Certificados</h1>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {/* Vista previa del certificado */}
