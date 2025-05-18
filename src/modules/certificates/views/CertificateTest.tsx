@@ -18,18 +18,34 @@ export const CertificateTest: React.FC = () => {
       <div className="p-4">
         <h1 className="text-2xl font-bold mb-4">Prueba de Certificados</h1>
         
-        <div className="bg-white p-4 rounded-lg shadow">
-          <h2 className="text-lg font-semibold mb-2">Datos del Certificado:</h2>
-          <div className="space-y-2">
-            <p><strong>ID:</strong> {testData.id}</p>
-            <p><strong>Nombre:</strong> {testData.name}</p>
-            <p><strong>Fecha:</strong> {testData.date}</p>
-            <p><strong>Monto:</strong> ${testData.amount}</p>
-            <p><strong>ID de Pago:</strong> {testData.paymentId}</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {/* Vista previa del certificado */}
+          <div className="bg-white p-4 rounded-lg shadow">
+            <h2 className="text-lg font-semibold mb-4">Vista Previa del Certificado</h2>
+            <div className="relative w-full aspect-[297/210] bg-gray-100 rounded-lg overflow-hidden">
+              <img 
+                src="/certificates/login.png" 
+                alt="Certificado" 
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 flex flex-col items-center justify-center">
+                <div className="text-4xl font-bold text-black mb-4">{testData.name}</div>
+                <div className="text-xl text-black">{testData.date}</div>
+              </div>
+            </div>
           </div>
-          
-          <div className="mt-4">
-            <CertificateGenerator paymentData={testData} />
+
+          {/* Controles y datos */}
+          <div className="bg-white p-4 rounded-lg shadow">
+            <h2 className="text-lg font-semibold mb-2">Datos del Certificado:</h2>
+            <div className="space-y-2 mb-4">
+              <p><strong>Nombre:</strong> {testData.name}</p>
+              <p><strong>Fecha:</strong> {testData.date}</p>
+            </div>
+            
+            <div className="mt-4">
+              <CertificateGenerator paymentData={testData} />
+            </div>
           </div>
         </div>
       </div>
