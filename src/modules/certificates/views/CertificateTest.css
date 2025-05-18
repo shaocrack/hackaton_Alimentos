@@ -1,0 +1,59 @@
+.certificado-preview {
+  position: relative;
+  width: 800px;
+  height: 565.5px;
+  margin: 0 auto;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.15);
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.cert-bg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.cert-nombre {
+  font-family: 'Georgia', serif; /* O la fuente que prefieras */
+  font-size: 2.5rem;             /* Cambia el tamaño aquí */
+  position: absolute;
+  top: 47%;
+  left: 52%;
+  transform: translate(-50%, -50%);
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #222;
+  width: 70%;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+.cert-fecha {
+  position: absolute;
+  top: 90%;
+  left:52%;
+  transform: translate(-50%, -50%);
+  font-size: 1.3rem;
+  color: #333;
+  width: 40%;
+  text-align: center;
+}
+
+.cert-qr {
+  position: absolute;
+  bottom: 40px;
+  right: 50px;
+  width: 75px;
+  height: 75px;
+  top: 360px;
+}
+
+@media (max-width: 900px) {
+  .certificado-preview {
+    width: 98vw;
+    height: calc(98vw * 1131 / 1600);
+    min-width: 0;
+  }
+} 
