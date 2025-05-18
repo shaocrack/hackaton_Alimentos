@@ -5,6 +5,9 @@ import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import CloseIcon from '@mui/icons-material/Close';
 
+import { ppxDefaultData } from '../../../../config/ppx/ppx.data';
+import { PpxButton } from './PpxButton';
+
 type PaymentOptionType = 'PagoPlux' | 'Paypal' | 'Debito Bancario';
 
 interface PaymentOptionDialogProps {
@@ -28,7 +31,7 @@ const PaymentOptionDialog: React.FC<PaymentOptionDialogProps> = ({ open, onClose
     };
     
     return (
-        <Dialog open={open} onClose={onClose} maxWidth="xs" fullWidth>
+        <Dialog open={open} onClose={onClose} fullWidth maxWidth={false} PaperProps={{ sx: { width: '60%', height: "80vh" } }}>
             <DialogTitle>
                 Selecciona un método de pago
                 <IconButton
@@ -84,7 +87,8 @@ const PaymentOptionDialog: React.FC<PaymentOptionDialogProps> = ({ open, onClose
                             <Box>
                                 {/* PagoPlux specific content */}
                                 <h3>Pago con PagoPlux</h3>
-                                {/* Add form fields here */}
+                                 <h2>Realizar Pago</h2>
+                                    <PpxButton data={ppxDefaultData} />
                             </Box>
                         )}
                         {selectedTab === 1 && (
