@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { CertificateGenerator } from './CertificateGenerator';
 import type { CertificateData } from '../models/CertificateModel';
 import Layout from '../../layout/Layout';
+import QRCode from 'qrcode';
 
 export const CertificateTest: React.FC = () => {
+  const [qrCode, setQrCode] = useState<string>('');
+
   // Datos de prueba
   const testData: CertificateData = {
     id: "CERT-001",
@@ -12,6 +15,25 @@ export const CertificateTest: React.FC = () => {
     amount: 1500.00,
     paymentId: "PAY-123"
   };
+
+  useEffect(() => {
+    // Generar QR
+    const qrData = {
+      message: "¡Sé parte del cambio!",
+      url: window.location.origin
+    };
+
+    QRCode.toDataURL(JSON.stringify(qrData), {
+      width: 200,
+      margin: 1,
+      color: {
+        dark: '#000000',
+        light: '#ffffff'
+      }
+    }).then(url => {
+      setQrCode(url);
+    });
+  }, []);
 
   return (
     <Layout>
@@ -30,7 +52,13 @@ export const CertificateTest: React.FC = () => {
               />
               <div className="absolute inset-0 flex flex-col items-center justify-center">
                 <div className="text-4xl font-bold text-black mb-4">{testData.name}</div>
-                <div className="text-xl text-black">{testData.date}</div>
+                <div className="text-xl text-black mb-8">{testData.date}</div>
+                {qrCode && (
+                  <div className="flex items-center gap-2">
+                    <img src={qrCode} alt="QR Code" className="w-16 h-16" />
+                    <span className="text-sm text-black">Escanea para más información</span>
+                  </div>
+                )}
               </div>
             </div>
           </div>
