@@ -44,7 +44,7 @@ const Payment = () => {
                 justifyContent: "center",
                 alignItems: "center",
                 backgroundColor: "#eb8022",
-                paddingY: 2,
+                paddingTop: 4,
                 borderRadius: 2 
               }}>
               <img
@@ -54,7 +54,8 @@ const Payment = () => {
               width={"80%"}
               style={{ borderRadius: 5 }}
             />
-            <p style={{ textAlign: "center", paddingTop: 4 }}>
+            <Box sx={{paddingX: 6, paddingY: 2}}>
+              <p style={{ textAlign: "justify", color: "#fff", fontSize: 14 }}>
               <strong>
                 1 de 4 niños menores de 5 años en Ecuador tiene desnutrición
                 infantil crónica
@@ -62,6 +63,7 @@ const Payment = () => {
               , una buena dieta es importante en los primeros mil días de vida
               del niño.
             </p>
+            </Box>
             </Box>
           </Box>
         </Box>
