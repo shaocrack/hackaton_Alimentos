@@ -76,7 +76,8 @@ export const PaypalButtons: React.FC<PaypalButtonsProps> = ({
                         PayPal
                     </span>
                 )}
-                <span title="Iniciar pago">Pagar</span>
+                <div id="paypal-button-container"></div>
+                <p id="result-message"></p>
             </span>
         </button>
     );
