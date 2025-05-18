@@ -9,6 +9,7 @@ import {
   InputAdornment,
   IconButton,
 } from "@mui/material";
+import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import { Search } from "@mui/icons-material";
 import { useAffiliation } from "../hooks/useAffiliation";
 import { CircularProgress, Alert, Backdrop } from "@mui/material";
@@ -73,7 +74,7 @@ export const InformationForm = ({ onNext }: { onNext: () => void }) => {
   }, [donor]);
 
   return (
-    <Box sx={{ mx: "auto", width: "100%" }}>
+    <Box sx={{ mx: "auto", width: "100%", px: { xs: 1, sm: 2 } }}>
       <Typography fontSize={18} gutterBottom>
         Detalles de facturación
       </Typography>
@@ -133,7 +134,7 @@ export const InformationForm = ({ onNext }: { onNext: () => void }) => {
         sx={mainColor}
       />
 
-      <Box sx={{ display: "flex", gap: 2}}>
+      <Box sx={{ display: "flex", gap: 2 }}>
         <TextField
           fullWidth
           label="Teléfono (opcional)"
@@ -188,19 +189,28 @@ export const InformationForm = ({ onNext }: { onNext: () => void }) => {
         sx={mainColor}
       />
 
-
-
-      <Box sx={{ display: "flex", justifyContent: "space-between", mb: 2 }}>
+      <Box sx={{ width: "100%", mb: 2 }}>
         <Button
           variant="contained"
           onClick={onNext}
+          fullWidth
           sx={{
             mt: 2,
+            py: 1.5,
+            fontWeight: "bold",
+            fontSize: "1rem",
             backgroundColor: "#eb8022",
-            "&:hover": { backgroundColor: "#d46f1d" },
+            color: "#fff",
+            boxShadow: "0 4px 16px rgba(235,128,34,0.25)",
+            border: "2px solid #d46f1d",
+            "&:hover": {
+              backgroundColor: "#d46f1d",
+              boxShadow: "0 6px 20px rgba(235,128,34,0.35)",
+            },
           }}
         >
           Siguiente
+          <KeyboardArrowRightIcon sx={{ ml: 1 }} />
         </Button>
       </Box>
 
