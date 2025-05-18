@@ -3,6 +3,7 @@ import { CertificateGenerator } from './CertificateGenerator';
 import type { CertificateData } from '../models/CertificateModel';
 import Layout from '../../layout/Layout';
 import QRCode from 'qrcode';
+import './CertificateTest.css';
 
 export const CertificateTest: React.FC = () => {
   const [qrCode, setQrCode] = useState<string>('');
@@ -44,22 +45,17 @@ export const CertificateTest: React.FC = () => {
           {/* Vista previa del certificado */}
           <div className="bg-white p-4 rounded-lg shadow">
             <h2 className="text-lg font-semibold mb-4">Vista Previa del Certificado</h2>
-            <div className="relative w-full aspect-[297/210] bg-gray-100 rounded-lg overflow-hidden">
+            <div className="certificado-preview">
               <img 
-                src="/certificates/login.png" 
+                src="/certificates/CERTIFICADO.jpg" 
                 alt="Certificado" 
-                className="w-full h-full object-cover"
+                className="cert-bg"
               />
-              <div className="absolute inset-0 flex flex-col items-center justify-center">
-                <div className="text-4xl font-bold text-black mb-4">{testData.name}</div>
-                <div className="text-xl text-black mb-8">{testData.date}</div>
-                {qrCode && (
-                  <div className="flex items-center gap-2">
-                    <img src={qrCode} alt="QR Code" className="w-16 h-16" />
-                    <span className="text-sm text-black">Escanea para más información</span>
-                  </div>
-                )}
-              </div>
+              <div className="cert-nombre">{testData.name}</div>
+              <div className="cert-fecha">{testData.date}</div>
+              {qrCode && (
+                <img src={qrCode} alt="QR Code" className="cert-qr" />
+              )}
             </div>
           </div>
 
