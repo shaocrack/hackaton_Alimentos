@@ -6,6 +6,7 @@ import { PaymentForm } from "./components/PaymentForm";
 import donateImage from "../../../assets/donate-2.png";
 import CreditCardIcon from "@mui/icons-material/CreditCard";
 import PersonIcon from "@mui/icons-material/Person";
+import { PagoPluxButton } from "./components/PagoPluxButton";
 
 const Payment = () => {
   const [activeStep, setActiveStep] = useState(0);
@@ -135,7 +136,27 @@ const Payment = () => {
                   },
                 }}
               />
-
+<Tab
+                icon={<CreditCardIcon />}
+                label="Pago Plux"
+                id="tab-2"
+                aria-controls="tabpanel-2"
+                sx={{
+                  fontSize: "small",
+                  color: activeStep === 2 ? "#eb8022" : "#888",
+                  borderBottom:
+                    activeStep === 2
+                      ? "2px solid #eb8022"
+                      : "2px solid transparent",
+                  "&.Mui-selected": {
+                    color: "#eb8022",
+                    borderBottom: "2px solid #eb8022",
+                  },
+                  "&:hover": {
+                    color: "#fff",
+                  },
+                }}
+              />
             </Tabs>
 
             {activeStep === 0 && (
@@ -143,6 +164,9 @@ const Payment = () => {
             )}
             {activeStep === 1 && (
               <PaymentForm onBack={() => setActiveStep(0)} />
+            )}
+                        {activeStep === 2 && (
+              <PagoPluxButton />
             )}
           </Box>
         </Box>

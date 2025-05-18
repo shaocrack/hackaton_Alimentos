@@ -1,5 +1,3 @@
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import Payment from './modules/payment/views/Payment';
 import Home from './modules/home/views/Home';
@@ -17,4 +15,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
