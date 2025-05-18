@@ -13,6 +13,7 @@ import {
 } from "@mui/material";
 import { mainColor } from "../utils/InputStyles";
 import PaymentOptionDialog from "./PaymentOption";
+import { usePayboxOpenObserver } from "../../../../hooks/usePayboxOpenObserver";
 
 export const PaymentForm = ({ onBack }: { onBack: () => void }) => {
   const [formData, setFormData] = React.useState({
