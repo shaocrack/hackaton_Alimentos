@@ -4,6 +4,7 @@ import PaymentIcon from '@mui/icons-material/Payment';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import CloseIcon from '@mui/icons-material/Close';
+import pagoPluxImage from "../../../../assets/fondo-login.ad46618a68c76307267f.svg";
 
 import { ppxDefaultData } from '../../../../config/ppx/ppx.data';
 import { PpxButton } from './PpxButton';
@@ -84,11 +85,35 @@ const PaymentOptionDialog: React.FC<PaymentOptionDialogProps> = ({ open, onClose
                     </Tabs>
                     <Box sx={{ flex: 1, p: 2 }}>
                         {selectedTab === 0 && (
-                            <Box>
-                                {/* PagoPlux specific content */}
-                                <h3>Pago con PagoPlux</h3>
-                                 <h2>Realizar Pago</h2>
+                            <Box
+                                sx={{
+                                    display: 'flex',
+                                    flexDirection: 'row',
+                                    alignItems: 'center',
+                                    justifyContent: 'flex-start',
+                                    height: '100%',
+                                    minHeight: '450px',
+                                    backgroundImage: `url(${pagoPluxImage})`,
+                                    backgroundRepeat: 'no-repeat',
+                                    backgroundPosition: 'center',
+                                    backgroundSize: 'cover',
+                                    borderRadius: 3,
+                                    p: 4,
+                                }}
+                            >
+                                <Box
+                                    sx={{
+                                        background: 'rgba(255,255,255,0.85)',
+                                        borderRadius: 2,
+                                        p: 4,
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        alignItems: 'center',
+                                    }}
+                                >
+                                    <h2 style={{ marginBottom: 24, color: '#1976d2', fontWeight: 700 }}>Realizar Pago</h2>
                                     <PpxButton data={ppxDefaultData} />
+                                </Box>
                             </Box>
                         )}
                         {selectedTab === 1 && (

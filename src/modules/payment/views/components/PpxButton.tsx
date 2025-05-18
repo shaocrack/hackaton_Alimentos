@@ -44,13 +44,13 @@ export const PpxButton = ({ data }: Props) => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "blue",
-        color: "white",
-        border: "none",
+        backgroundColor: "white",
+        color: "#661AB6",
+        border: "3px solid #661AB6",
         borderRadius: "5px",
         cursor: "pointer",
         padding: "12px 24px",
-        fontSize: "16px",
+        fontSize: 18,
         gap: "12px",
       }}
       >
