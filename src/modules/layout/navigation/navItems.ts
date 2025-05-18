@@ -13,7 +13,6 @@ export const navItems = [
         type: "submenu",
       },
       { path: "/donate-baq", label: "Donar – BAQ", type: "submenu" },
-      { path: "/volunteering", label: "Voluntariado", type: "submenu" },
     ],
   },
   {
@@ -25,14 +24,10 @@ export const navItems = [
         path: "/social-organizations",
         label: "Organizaciones Sociales",
       },
-      {
-        path: "/family-assistance",
-        label: "Programa de Asistencia Familiar",
-        type: "simple",
-      },
     ],
   },
 
   { path: "/contact", label: "Contáctanos", type: "simple" },
   { path: "/donate", label: "Donar", type: "simple" }, // Destacado
+  
 ];

@@ -1,0 +1,239 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.about-container {
+  position: relative;
+  min-height: calc(100vh - 80px - 60px); /* Ajustar para NavBar y Footer */
+  background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%); /* Fondo claro */
+  padding: 4rem 2rem;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.about-overlay {
+  /* No overlay needed for a light background, or use a subtle one */
+  display: none; /* Ocultar la superposición para fondo claro */
+}
+
+.about-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-title {
+  font-size: 4rem;
+  font-weight: 800;
+  color: #333; /* Color de texto oscuro para fondo claro */
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-out;
+}
+
+.about-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  margin-bottom: 5rem;
+}
+
+.about-card {
+  background: rgba(255, 255, 255, 1); /* Fondo blanco sólido */
+  border-radius: 25px;
+  padding: 2.5rem;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  animation: scaleIn 0.7s ease-out;
+  text-align: left;
+  border: 1px solid #ddd; /* Borde sutil */
+}
+
+.about-card:hover {
+  transform: translateY(-10px) rotate(1deg);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+}
+
+.card-icon {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  color: #ff7e5f; /* Mantener color de acento */
+  display: block;
+  text-align: center;
+}
+
+.card-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #4a5568; /* Color de texto oscuro */
+  margin-bottom: 1.2rem;
+  text-align: center;
+}
+
+.card-content {
+  color: #2d3748; /* Color de texto más oscuro */
+  line-height: 1.7;
+  font-size: 1.1rem;
+}
+
+.card-content li {
+  margin-bottom: 0.8rem;
+}
+
+.stats-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2.5rem;
+  margin-top: 5rem;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 1); /* Fondo blanco sólido */
+  border-radius: 20px;
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  animation: fadeInUp 0.9s ease-out;
+  border: 1px solid #ddd; /* Borde sutil */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.stat-icon {
+  font-size: 3.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.stat-number {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #ff7e5f; /* Mantener color de acento */
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 1.2rem;
+  color: #2d3748; /* Color de texto más oscuro */
+  font-weight: 600;
+}
+
+.animate-fadeIn { 
+  animation: fadeIn 1s ease-out;
+}
+
+.animate-fadeInUp { 
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.7s ease-out;
+}
+
+@media (max-width: 768px) {
+  .about-title {
+    font-size: 3rem;
+  }
+  
+  .about-cards {
+    grid-template-columns: 1fr;
+  }
+  
+  .stats-container {
+    grid-template-columns: 1fr;
+  }
+
+  .about-card, .stat-card {
+    padding: 2rem;
+  }
+
+  .card-icon {
+    font-size: 3.5rem;
+  }
+
+  .card-title {
+    font-size: 1.6rem;
+  }
+
+  .stat-icon {
+    font-size: 3rem;
+  }
+
+  .stat-number {
+    font-size: 2.5rem;
+  }
+
+  .stat-label {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-title {
+    font-size: 2.5rem;
+  }
+
+  .about-card, .stat-card {
+    padding: 1.5rem;
+  }
+
+  .card-icon {
+    font-size: 3rem;
+  }
+
+  .card-title {
+    font-size: 1.4rem;
+  }
+
+  .stat-icon {
+    font-size: 2.5rem;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+  }
+
+  .stat-label {
+    font-size: 0.9rem;
+  }
+}
+
+/* Estilos específicos para About (si los hay) */
+/* .about-container { ... } */
+/* .about-card { ... } */ 
