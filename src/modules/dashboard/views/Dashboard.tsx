@@ -23,6 +23,7 @@ import {
   EmojiEvents
 } from '@mui/icons-material';
 import './Dashboard.css';
+import { useNavigate } from 'react-router-dom';
 
 // Tipos explícitos para los datos
 interface Stat {
@@ -121,6 +122,8 @@ const Dashboard: React.FC = () => {
     setFiltroAnio(e.target.value as Year);
   };
 
+  const navigate = useNavigate();
+
   const handleDonar = () => {
     setShowPlusOne(true);
     setAnimDonadores(true);
@@ -128,7 +131,7 @@ const Dashboard: React.FC = () => {
       setShowPlusOne(false);
       setDonadores((prev) => prev + 1);
       setTimeout(() => setAnimDonadores(false), 800);
-      window.location.href = '/donate';
+      navigate('/donate');
     }, 1200);
   };
 
